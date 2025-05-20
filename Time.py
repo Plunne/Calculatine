@@ -1,15 +1,15 @@
 import datetime
 
 # Late from France
-CAL = -9
-QC = -6
-NY = -6
+CAL = cal = Cal = California = -9
+QC = Quebec = qc = -6
+NY = NewYork = ny = nyc = -6
 
 # In advance from France
-REU = 3
-CN = 6
-JP = 7
-AUS = 8
+REU = reunion = Reunion = 3
+CN = Chine = chine = China = china = 6
+JP = Japan = japan = Japon = japon = 7
+AUS = aus = Australia = australia = 8
 
 # Clock
 def timeClock(in_zone):
