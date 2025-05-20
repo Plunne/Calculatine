@@ -27,3 +27,9 @@ def timeClock(in_zone):
 # Delta
 def timeDiff(in_zone):
   return in_zone
+
+def age(in_year, in_month = 1, in_day = 1):
+  
+  local_today = datetime.datetime.today()
+  
+  return local_today.year - in_year - ((local_today.month, local_today.day) < (in_month, in_day))
