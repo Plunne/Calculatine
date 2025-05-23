@@ -1,4 +1,4 @@
-from math import *
+import math as m
 from Time import *
 from Units import *
 from Money import *

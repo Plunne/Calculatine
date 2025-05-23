@@ -18,7 +18,8 @@ def timeClock(in_zone):
   print(datetime.datetime.now().strftime(":%M:%S"), end=" ")
   
   if in_zone != 0:
-    print("+" if in_zone > 0 else "-")
+    print("+" if in_zone > 0 else "-", end="")
+    print(f"{in_zone}h")
   elif in_zone == 0:
     print("=")
   else :
