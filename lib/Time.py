@@ -11,25 +11,51 @@ CN = Chine = chine = China = china = 6
 JP = Japan = japan = Japon = japon = 7
 AUS = aus = Australia = australia = 8
 
-# Clock
-def timeClock(in_zone):
-  
+# Time
+def time(in_zone = 0):
+  """
+  Display time of the country/city/state/region and the delta from France.
+
+  List of Countries/Cities/States/Regions availables :
+
+  [Africa]
+  - REU, reunion, Reunion
+
+  [America]
+  - CAL,cal,Cal,California
+  - QC, Quebec, qc
+  - NY, NewYork, ny, nyc
+
+  [Asia]
+  - CN, Chine, chine, China, china
+  - JP, Japan, japan, Japon, japon
+
+  [Oceanie]
+  - AUS, aus, Australia, australia
+  """
+
   print((int(datetime.datetime.now().strftime("%H")) + in_zone) % 24, end="")
   print(datetime.datetime.now().strftime(":%M:%S"), end=" ")
   
-  if in_zone != 0:
-    print("+" if in_zone > 0 else "-", end="")
-    print(f"{in_zone}h")
-  elif in_zone == 0:
-    print("=")
+  if (in_zone == 0):
+    print("(=)")
+  elif in_zone != 0:
+    print("(+" if in_zone > 0 else "(", end="")
+    print(f"{in_zone}h)")
   else :
     print("[ERROR] Not a TimeZone.")
 
-# Delta
-def timeDiff(in_zone):
-  return in_zone
-
+# Age
 def age(in_year, in_month = 1, in_day = 1):
+  """
+  Find the age of a person by birth date.
+
+  age(YYYY, MM, DD)
+
+  - Year : mandatory
+  - Month : optional
+  - Day : optional
+  """
   
   local_today = datetime.datetime.today()
   
