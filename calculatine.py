@@ -1,9 +1,9 @@
 import math as m
-from Time import *
-from Units import *
-from Money import *
-from Poll import *
-from Gears import *
+from lib.Time import *
+from lib.Units import *
+from lib.Money import *
+from lib.Poll import *
+from lib.Gears import *
 
 print("\n***********************")
 print("*     CALCULATINE     *")

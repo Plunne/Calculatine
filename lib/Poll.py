@@ -1,5 +1,8 @@
 import random as r
 import json
+from os.path import dirname, abspath, join
+
+db_poll_file = join(dirname(dirname(abspath(__file__))), join("db", "db_poll.json"))
 
 def coinflip():
     
@@ -72,7 +75,7 @@ def poll():
 
                 poll_save_as = input("Save as : ")
                 
-                with open("db_poll.json", "r+") as poll_save_db:
+                with open(db_poll_file, "r+") as poll_save_db:
                     
                     poll_save_tmp = json.load(poll_save_db)
                     poll_save_dict = { poll_save_as : poll_list }
@@ -85,7 +88,7 @@ def poll():
             # Load from json db
             case "load":
 
-                with open("db_poll.json", "r") as poll_load_db:
+                with open(db_poll_file, "r") as poll_load_db:
                     
                     poll_load_tmp = json.load(poll_load_db)
                     print(json.dumps(poll_load_tmp, indent = 4))
@@ -104,13 +107,13 @@ def poll():
             case "delete":
                 
                 # Get json file content
-                with open("db_poll.json", "r") as poll_delete_db:
+                with open(db_poll_file, "r") as poll_delete_db:
                     
                     poll_delete_tmp = json.load(poll_delete_db)
                     print(json.dumps(poll_delete_tmp, indent = 4))
                 
                 # Set json file content
-                with open("db_poll.json", "w") as poll_delete_db:
+                with open(db_poll_file, "w") as poll_delete_db:
 
                     poll_delete_list = input("Delete : ")
 
