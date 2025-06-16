@@ -134,7 +134,7 @@ class Gears:
     self.set_master_value(default_value)
     self.set_master_lenght(default_lenght)
     
-    print(self.gears)
+    return self.gears
 
   ################
   #     Full     #
@@ -155,7 +155,7 @@ class Gears:
       self.set_master_value(in_value)
       self.set_master_lenght(in_length)
       
-      print(self.gears)
+      return self.gears
     
     else:
       print("[Error] Please use 3rd or 4th gear as master.")
