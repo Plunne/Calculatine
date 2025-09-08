@@ -49,7 +49,7 @@ def pressure(in_fromPressure, in_value, in_toPressure):
   - Pa
   - Psi
   """
-  return (in_value / in_fromPressure) * in_toPressure
+  return (in_value / in_toPressure) * in_fromPressure
 
 def toPa(in_pressure = 1):
   """
@@ -97,7 +97,7 @@ frompsi = fromPsi
 
 kph = Kph = kmh = Kmh = 1
 mph = Mph = 0.621371
-kn = Kn = 1852
+kn = Kn = 1.852
 
 def speed(in_fromSpeed, in_value, in_toSpeed):
   """
@@ -115,7 +115,7 @@ def speed(in_fromSpeed, in_value, in_toSpeed):
   - mph, Mph
   - kn, Kn
   """
-  return (in_value / in_fromSpeed) * in_toSpeed
+  return (in_value / in_toSpeed) * in_fromSpeed
 
 def toKn(in_speed = 1):
   """
@@ -189,8 +189,8 @@ toLkm = tolkm = frommpg = fromMpg
 #######################
 
 C = Cel = Celsius = 1
-K = Kel = Kelvin = -273.15
-F = Far = Fareneight = -459.67
+K = Kel = Kelvin = 273.15
+F = Far = Fareneight = 2
 
 def temp(in_fromTemperature, in_value, in_toTemperature):
   """
@@ -208,7 +208,7 @@ def temp(in_fromTemperature, in_value, in_toTemperature):
   - K, Kel, Kelvin
   - F, Far, Fareneight
   """
-  return (in_value / in_fromTemperature) * in_toTemperature
+  return (in_value / in_toTemperature) * in_fromTemperature
 
 def toF(in_temperature = 1):
   """
@@ -216,7 +216,7 @@ def toF(in_temperature = 1):
 
   Aliases : toFareneight, toFar, tofar, tof
   """
-  return in_temperature * Far
+  return (in_temperature * (9/5)) + 32
 
 toFareneight = toFar = tofar = tof = toF
 
@@ -226,7 +226,7 @@ def fromF(in_temperature = 1):
 
   Aliases : fromFareneight, fromFar, fromfar, fromf
   """
-  return in_temperature / Far
+  return (in_temperature - 32) * (9/5)
 
 fromFareneight = fromFar = fromfar = fromf = fromF
 
@@ -236,7 +236,7 @@ def toK(in_temperature = 1):
 
   Aliases : toKelvin, toKel, tokel, tok
   """
-  return in_temperature * Kel
+  return in_temperature - Kel
 
 toKelvin = toKel = tokel = tok = toK
 
@@ -246,7 +246,7 @@ def fromK(in_temperature = 1):
 
   Aliases : fromKelvin, fromKel, fromkel, fromk
   """
-  return in_temperature / Kel
+  return in_temperature + Kel
 
 fromKelvin = fromKel = fromkel = fromk = fromK
 
