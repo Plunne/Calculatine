@@ -1,4 +1,4 @@
-#!/usr/bin/sh
+#!/bin/sh
 
 PY_INTERPETER="python3"
 
@@ -21,22 +21,25 @@ else
 fi
 
 # Define execute command
-PY_CMD="$PY_INTERPETER -i $PWD/../../calculatine.py"
+PY_CMD="$PY_INTERPETER -i $PWD/calculatine.py"
 
+# Application path
+APP_PATH=$HOME/.local/share/applications
+APP_EXEC=$APP_PATH/calculatine.desktop
 
 # Check if .local/share/applications directory exists
-if [ -e $HOME/.local/share/applications/ ]
+if [ -e $APP_PATH ]
 then
-    echo -e "1. \"$HOME/.local/share/applications\" already exists."
+    echo -e "1. \"$APP_PATH\" already exists."
 else
-    echo -e "1. Create \"$HOME/.local/share/applications\"."
-    mkdir -p $HOME/.local/share/applications
+    echo -e "1. Create \"$APP_PATH\"."
+    mkdir -p $APP_PATH
 fi
 
-echo -e "2. Create \"$HOME/.local/share/applications/calculatine.desktop\"."
-
 # Create desktop launcher
-cat > $HOME/.local/share/applications/calculatine.desktop <<EOF
+echo -e "2. Create \"$APP_EXEC\"."
+
+cat > $APP_EXEC <<EOF
 [Desktop Entry]
 Version=1.0.2
 Name=Calculatine
@@ -50,16 +53,26 @@ Categories=System;
 EOF
 
 # Create bin file
-BIN_PATH="/usr/bin/calculatine" 
+BIN_PATH=$HOME/.local/bin
+BIN_EXEC=$BIN_PATH/calculatine
 
-echo -e "3. Create \"$BIN_PATH\" executable."
+# Check if .local/bin directory exists
+if [ -e $BIN_PATH ]
+then
+    echo -e "3. \"$BIN_PATH\" already exists."
+else
+    echo -e "3. Create \"$BIN_PATH\"."
+    mkdir -p $BIN_PATH
+fi
 
-cat > $BIN_PATH <<EOF
+echo -e "4. Create \"$BIN_EXEC\" executable."
+
+cat > $BIN_EXEC <<EOF
 #!/bin/sh
 $PY_CMD
 EOF
 
-chmod +x $BIN_PATH
+chmod +x $BIN_EXEC
 
 # Final message
 echo -e "\nCalculatine has been installed."
